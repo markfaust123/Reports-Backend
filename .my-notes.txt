@@ -1,0 +1,14 @@
+TODO: Task 7 (User Authentication)
+TODO: Only allow creation of account if given appropriate access (Ex: need to provide account creation code or can only be valid jhed or use Outlook Oauth)
+TODO: Only allow access to resources if have valid JWT token (move @UseGuards(JwtAuthGuard) to above the controllers)
+TODO: Allow for search across title AND description
+TODO: Search + Pagination does not always work. EX: make 12 reports, with 1 - 12 in the title, respectively. then, search for '8' with pagintion limit = 4 and offset = 1. 
+TODO: Create example.env file for setup
+
+Thoughts:
+* Create one-to-one relationship with user and their profiles, as suggested in Task 8
+* Implement a many-to-many relationship for "reposting" reports (multiple people working on the same report?)
+
+Errors: 
+
+* Creation of two users with the same name will just return a "500: Internal server error." No user is created in the database, but the user id (primary key) is nonetheless incremented. We should probably make sure that a more specific error is thrown and that the user id is not incremented. (try making user with same username and then read the console logs ERROR)
